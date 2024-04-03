@@ -15,11 +15,11 @@ public class ObjectController {
 
     private final ObjectService objectService;
 
-    @GetMapping("/bySurface")
-    public String findAllBySurface(@RequestParam String lonMin,
-                                   @RequestParam String latMin,
-                                   @RequestParam String lonMax,
-                                   @RequestParam String latMax) {
-        return objectService.findAllBySurface(lonMin, latMin, lonMax, latMax);
-    }
+//    @GetMapping("/bySurface")
+//    public String findAllBySurface(@RequestParam String lonMin,
+//                                   @RequestParam String latMin,
+//                                   @RequestParam String lonMax,
+//                                   @RequestParam String latMax) {
+//        return objectService.findAllBySurface(lonMin, latMin, lonMax, latMax);
+//    }
 }

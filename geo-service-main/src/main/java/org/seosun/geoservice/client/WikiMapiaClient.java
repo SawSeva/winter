@@ -1,9 +1,12 @@
 package org.seosun.geoservice.client;
 
+import org.seosun.geoservice.dto.Area;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.List;
 
 @Service
 @FeignClient(value = "wikimapia", url = "${wikimapia.url}", configuration = WikiMapiaAuth.class)
@@ -18,11 +21,9 @@ public interface WikiMapiaClient {
                            @RequestParam String format);
 
     @GetMapping
-    String getGeo(@RequestParam String function,
-                  @RequestParam String coordsby,
-                  @RequestParam String lon_min,
-                  @RequestParam String lat_min,
-                  @RequestParam String lon_max,
-                  @RequestParam String lat_max,
-                  @RequestParam String format);
+    Area getPolygonsByArea(@RequestParam List<String> function,
+                           @RequestParam String bbox,
+                           @RequestParam Long count,
+                           @RequestParam Long page,
+                           @RequestParam String format);
 }
