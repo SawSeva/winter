@@ -26,3 +26,7 @@ wikimapia:
     http://api.wikimapia.org
   key:
     example
+
+joinfaces:
+  faces:
+    project-stage: development

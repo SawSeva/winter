@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:h="jakarta.faces.html"
+      xmlns:f="jakarta.faces.core"
+      xmlns:p="http://primefaces.org/ui">
+<script type="text/javascript" src="https://maps.google.com/maps/api/js?key=AIzaSyCvCDkYieuUBmMWon_mfLAfjuaeuosuqow&amp;sensor=true"></script>
+<f:view contentType="text/html;charset=UTF-8" encoding="UTF-8">
+    <h:head>
+        <title>geo service</title>
+        <h:outputStylesheet name="primefaces-saga/theme.css"/>
+    </h:head>
+    <h:body>
+        <h:form id="geoForm">
+            <p:panel header="Geo searcher form" layout="grid" autoUpdate="true">
+                <h:panelGrid columns="1" >
+                    <p:outputLabel for="bbox" value="Bbox: "/>
+                    <p:inputText id="bbox" value="#{polygonsView.bbox}"/>
+                    <p:commandButton id="submitButton" value="Submit" type="submit" action="#{polygonsView.submit()}" update="polyMap"/>
+                </h:panelGrid>
+                <div>
+                    <p:gmap id="polyMap" center="50.469812, 30.516014" zoom="10" type="HYBRID" style="width:100%;height:800px" model="#{polygonsView.polygonModel}"/>
+                </div>
+            </p:panel>
+        </h:form>
+    </h:body>
+</f:view>
+</html>
