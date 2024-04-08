@@ -19,7 +19,7 @@ public class CategoryController {
     private final CategoryService categoryService;
 
     @GetMapping
-    public String findAll(@RequestParam(required = false) String name) {
+    public String findAll(@RequestParam(required = false) String name) throws JsonProcessingException {
         return categoryService.findAll(name);
     }
 
